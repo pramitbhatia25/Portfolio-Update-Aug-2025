@@ -153,14 +153,61 @@ function Dashboard() {
     Leadership: 'leadership',
   };
 
-  function scrollToCardById(id) {
+  const funFacts = [
+    "I once presented a startup idea to our university's Industry Advisory Board with the dean and the president present!",
+    "I've built 50+ CS projects!",
+    "I've won $4,000+ in hackathon awards!",
+    "I've watched every Marvel movie in theatres!",
+    "Every time I've won a hackathon at Georgia Tech, the Indian cricket team won a match the same day!",
+    "I've lived in 2 countries, 3 states, and 4 cities!",
+    "I've attended more than 10 different schools/universities!",
+    "I once got caught up in an minor avalanche while skiing!"
+  ];
+
+  const funFactTargets = ['titleContact', 'skills', 'experience', 'education', 'projects', 'leadership', 'loveCenter', 'loveRight'];
+  const funFactById = Object.fromEntries(
+    funFactTargets.map((id, i) => [id, funFacts[i % funFacts.length]])
+  );
+
+  function scrollToCardById(id, opts = {}) {
+    const { wiggle = false } = opts;
     const el = document.querySelector(`.taped-card[data-id="${id}"]`);
     if (!el) return;
+
+    const scrollerEl = document.querySelector('.notebook');
+    const scroller = (scrollerEl && scrollerEl.scrollHeight > scrollerEl.clientHeight) ? scrollerEl : window;
     const nav = document.querySelector('.nav-card');
     const navH = nav ? nav.getBoundingClientRect().height : 0;
     const extra = 16;
-    const y = el.getBoundingClientRect().top + window.scrollY - (isMobile ? (navH + extra) : 80);
-    window.scrollTo({ top: y, behavior: 'smooth' });
+
+    let targetTop = 0;
+
+    if (scroller === window) {
+      const y = el.getBoundingClientRect().top + window.scrollY - (isMobile ? (navH + extra) : 80);
+      targetTop = y;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      const r = el.getBoundingClientRect();
+      const rootR = scroller.getBoundingClientRect();
+      const base = r.top - rootR.top + scroller.scrollTop;
+      const offset = isMobile ? (navH + extra) : 80;
+      targetTop = Math.max(0, base - offset);
+      scroller.scrollTo({ top: targetTop, behavior: 'smooth' });
+    }
+
+    if (!wiggle) return;
+
+    const getScrollTop = () => (scroller === window ? window.scrollY : scroller.scrollTop);
+
+    const check = () => {
+      if (Math.abs(getScrollTop() - targetTop) < 2) {
+        const target = document.querySelector(`.taped-card[data-id="${id}"]`);
+        if (target) { target.classList.remove('wiggle'); void target.offsetWidth; target.classList.add('wiggle'); }
+        return;
+      }
+      requestAnimationFrame(check);
+    };
+    requestAnimationFrame(check);
   }
 
   function openMenu() { setMenuVisible(true); requestAnimationFrame(() => setMenuOpen(true)); }
@@ -174,14 +221,13 @@ function Dashboard() {
       scrollToCardById(id);
       closeMenu();
     } else {
-      const el = document.querySelector(`.taped-card[data-id="${id}"]`);
-      if (el) { el.classList.remove('wiggle'); void el.offsetWidth; el.classList.add('wiggle'); }
+      scrollToCardById(id, { wiggle: true });
     }
   }
 
   const stackStyle = isMobile
-  ? { position: 'relative', width: 'calc(100% - 56px)', left: 'auto', top: 'auto', margin: '0 auto', marginBottom: gap + 8 }
-  : {};
+    ? { position: 'relative', width: 'calc(100% - 56px)', left: 'auto', top: 'auto', margin: '0 auto', marginBottom: gap + 8 }
+    : {};
   // Desktop: dynamically size container to fit absolute-positioned cards
   const [docH, setDocH] = useState(0);
   function recalcDocHeight() {
@@ -480,7 +526,7 @@ function Dashboard() {
         html, body, #root { height: 100%; overflow-x: hidden; }
         .notebook{
           position: relative;
-          min-height: 100vh;
+          height: 100vh;
           background:
             repeating-linear-gradient(0deg, transparent 0 var(--grid-size), var(--grid-line) var(--grid-size) calc(var(--grid-size) + 1px)),
             repeating-linear-gradient(90deg, transparent 0 var(--grid-size), var(--grid-line) var(--grid-size) calc(var(--grid-size) + 1px)),
@@ -506,7 +552,9 @@ function Dashboard() {
           cursor: grab;
           transform-origin: 50% 12%;
           transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+          z-index: 1;
         }
+          
         .taped-card .tape{
           position:absolute;
           width: 82px; height: 28px;
@@ -670,6 +718,21 @@ function Dashboard() {
         }
         .footer .icon-btn svg{ width:18px; height:18px; fill:currentColor; }
         
+        /* fun facts behind cards */
+        .fun-fact{
+          position:absolute;
+          background: rgba(255,255,255,0.7);
+          border: 1px dashed rgba(0,0,0,.18);
+          border-radius: 12px;
+          padding: 10px 12px;
+          color: var(--muted);
+          font-size: 13px;
+          font-style: italic;
+          line-height: 1.35;
+          pointer-events: none;
+          z-index: 0;
+        }
+
         /* desktop footer spacer (pushes in-flow footer below absolute cards) */
         .footer-spacer{ display:block; height:0; }
         @media (min-width: 900px) {
@@ -829,7 +892,7 @@ function Dashboard() {
         <div className="drag-modal-overlay" role="dialog" aria-modal="true" aria-label="Drag hint">
           <div className="drag-modal">
             <div className="drag-modal-title">Heads up</div>
-            <div className="drag-modal-body">drag around the cards for fun facts about me</div>
+            <div className="drag-modal-body">Drag around the cards for some fun facts!</div>
             <div className="drag-modal-actions">
               <button className="drag-modal-btn" onClick={() => setShowDragModal(false)}>Got it</button>
             </div>
@@ -864,9 +927,9 @@ function Dashboard() {
             <li style={{ marginBottom: '8px' }}><strong>Location:</strong> Atlanta, GA</li>
           </ul>
           <div className="link-row">
-            <a className="pill-link" href="#" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>LinkedIn</a>
-            <a className="pill-link" href="#" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Portfolio</a>
-            <a className="pill-link" href="#" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>GitHub</a>
+            <a className="pill-link" href="https://www.linkedin.com/in/pramit-bhatia/" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>LinkedIn</a>
+            <a className="pill-link" href="https://drive.google.com/file/d/1rBtBglnxaUu3eKsUfcSFDdgVSjLKjCAJ/view?usp=sharing" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Resume</a>
+            <a className="pill-link" href="https://github.com/pramitbhatia25" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>GitHub</a>
           </div>
         </div>
       </DraggableCard>
@@ -894,16 +957,38 @@ function Dashboard() {
           {projectsCard}
         </>
       )}
+      {!isMobile && (
+        <>
+          {funFactTargets.map((id) => {
+            const p = layout[id];
+            if (!p) return null;
+            return (
+              <div
+                key={`fact-${id}-${colW}`}
+                className="fun-fact"
+                style={{
+                  left: p.x + 10,
+                  top: p.y + 14,
+                  width: Math.max(240, colW - 24)
+                }}
+              >
+                {funFactById[id]}
+              </div>
+            );
+          })}
+        </>
+      )}
+
       {!isMobile && <div className="footer-spacer" aria-hidden="true" style={{ height: Math.max(0, docH) }} />}
       <footer className="footer" role="contentinfo" aria-label="Footer">
         <div className="links">
-          <a className="icon-btn" href="#" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+          <a className="icon-btn" href="https://www.linkedin.com/in/pramit-bhatia/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.6c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.9 1.97-2.9 4v7.74h-5V8z" /></svg>
           </a>
-          <a className="icon-btn" href="#" aria-label="GitHub" target="_blank" rel="noreferrer">
+          <a className="icon-btn" href="https://github.com/pramitbhatia25" aria-label="GitHub" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.99 5.24.99 11.5c0 4.86 3.15 8.98 7.51 10.43.55.1.75-.24.75-.53l-.01-1.87c-3.05.66-3.69-1.3-3.69-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.44 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.42.11-2.96 0 0 .92-.29 3.02 1.13.88-.25 1.82-.37 2.76-.37.94 0 1.88.12 2.76.37 2.1-1.42 3.02-1.13 3.02-1.13.6 1.54.22 2.68.11 2.96.7.77 1.13 1.76 1.13 2.96 0 4.23-2.58 5.15-5.04 5.43.4.35.75 1.03.75 2.08l-.01 3.08c0 .29.2.63.75.53 4.36-1.44 7.51-5.57 7.51-10.43C23.01 5.24 18.27.5 12 .5z" /></svg>
           </a>
-          <a className="icon-btn" href="#" aria-label="Resume" target="_blank" rel="noreferrer">
+          <a className="icon-btn" href="https://drive.google.com/file/d/1rBtBglnxaUu3eKsUfcSFDdgVSjLKjCAJ/view?usp=sharing" aria-label="Resume" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 7H8V7h7v2zm0 4H8v-2h7v2zm0 4H8v-2h7v2zM13 3.5L18.5 9H13V3.5z" /></svg>
           </a>
         </div>
