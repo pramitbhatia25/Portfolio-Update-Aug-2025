@@ -406,7 +406,7 @@ function Dashboard() {
       </ul>
       <div className="meta">Winner - Best Generative AI Hack @ Hackalytics 2025, Georgia Tech</div>
       <div className="link-row">
-        <a className="pill-link" href="#" target="_blank" rel="noreferrer">View Announcement</a>
+        <a className="pill-link" href="https://www.linkedin.com/posts/pramit-bhatia_hacklytics-ai-crypto-activity-7302785837279182848-EJTa/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABfysTgBjAtVHdGsQalpvn6ClHGE4vi5uFw" target="_blank" rel="noreferrer">View Announcement</a>
       </div>
 
       <div className="subsection" style={{ marginTop: 12 }}>Kapstone</div>
@@ -415,7 +415,7 @@ function Dashboard() {
       </ul>
       <div className="meta">Raised $25k+ - Microsoft for Startups and Startup Exchange GT; 3rd Place @ SX Summit</div>
       <div className="link-row">
-        <a className="pill-link" href="#" target="_blank" rel="noreferrer">View Announcement</a>
+        <a className="pill-link" href="https://www.linkedin.com/posts/pramit-bhatia_very-excited-to-share-that-we-placed-3rd-activity-7265733038720917504-YpDg/" target="_blank" rel="noreferrer">View Announcement</a>
       </div>
 
       <div className="subsection" style={{ marginTop: 12 }}>HealthSync</div>
@@ -424,7 +424,7 @@ function Dashboard() {
       </ul>
       <div className="meta">Winner - Best Healthcare Hack @ Hackalytics 2024, Georgia Tech</div>
       <div className="link-row">
-        <a className="pill-link" href="#" target="_blank" rel="noreferrer">View Announcement</a>
+        <a className="pill-link" href="https://www.linkedin.com/posts/pramit-bhatia_hackalytics2024-activity-7162999991312044032-lAMQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAABfysTgBjAtVHdGsQalpvn6ClHGE4vi5uFw" target="_blank" rel="noreferrer">View Announcement</a>
       </div>
     </DraggableCard>
   );
@@ -997,5 +997,6 @@ function Dashboard() {
 
   );
 }
+
 
 export default Dashboard;
