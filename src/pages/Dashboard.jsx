@@ -115,7 +115,7 @@ function Dashboard() {
       L.titleContact = { x: x[0], y: 100 }; L.education = { x: x[0], y: 540 }; L.projects = { x: x[0], y: 900 };
       L.experience = { x: x[1], y: 100 };
       L.skills = { x: x[2], y: 100 }; L.leadership = { x: x[2], y: 820 };
-      L.loveCenter = { x: x[1], y: 1090 };
+      L.loveCenter = { x: x[1], y: 1250 };
       L.loveRight = { x: x[2], y: 1200 };
     } else if (mode === 2) {
       L.titleContact = { x: x[0], y: 100 }; L.education = { x: x[0], y: 620 }; L.projects = { x: x[0], y: 1100 };
@@ -340,26 +340,27 @@ function Dashboard() {
       <div className="subsection">Cybriant - Software Engineer</div>
       <div className="meta">May 2024 - Present</div>
       <ul className="bullets">
-        <li><span className="bullet-tldr">Shipped multi-tenant SecOps SaaS</span><span className="bullet-rest"> — React, Flask, GCP, Auth0, WIF; onboarded 5 MSSPs, 100+ tenants, 10K+ endpoints; days to minutes.</span></li>
-        <li><span className="bullet-tldr">Designed zero‑trust IAM and tenancy isolation</span><span className="bullet-rest"> — Cloud Build, Artifact Registry, API Gateway; policy‑as‑code.</span></li>
-        <li><span className="bullet-tldr">Built scalable reporting pipeline</span><span className="bullet-rest"> — Cloud Run Jobs + BigQuery + Looker Studio; hours to minutes; 75% higher throughput.</span></li>
-        <li><span className="bullet-tldr">Led 3 intern squads</span><span className="bullet-rest"> — delivered agent‑driven ASM platform; 1st at KSU Capstone 2024.</span></li>
-        <li><span className="bullet-tldr">Operationalized AI agents</span><span className="bullet-rest"> — Google ADK automation for SOC triage and enrichment.</span></li>
+        <li><span className="bullet-tldr">Architected multi-tenant SecOps SaaS platform</span><span className="bullet-rest"> — React + Flask + GCP stack with Auth0 authentication and Workload Identity Federation for secure multi-tenancy.</span></li>
+        <li><span className="bullet-tldr">Scaled to 5 Partner Organizations and 1000+ enterprise customers</span><span className="bullet-rest"> — serving 10,000+ endpoints; reduced onboarding from days to minutes through automated provisioning.</span></li>
+        <li><span className="bullet-tldr">Built cloud-native infrastructure</span><span className="bullet-rest"> — Cloud Run, Cloud Build, Artifact Registry, API Gateway ensuring controlled access and safe operations.</span></li>
+        <li><span className="bullet-tldr">Optimized data pipeline performance</span><span className="bullet-rest"> — Python + Cloud Run Jobs + BigQuery + Looker Studio; reduced runtime from hours to minutes (75% throughput improvement).</span></li>
+        <li><span className="bullet-tldr">Led 15-person intern program</span><span className="bullet-rest"> — directed 3 cross-functional teams building Attack Surface Management system; won 1st place at KSU Capstone (500+ students, 50 projects).</span></li>
+        <li><span className="bullet-tldr">Deployed AI-driven SOC automation</span><span className="bullet-rest"> — Google Agent Development Kit (ADK) for critical security workflows and alert triage.</span></li>
       </ul>
 
       <div className="subsection" style={{ marginTop: 30 }}>Cybriant - Software Engineer Intern</div>
       <div className="meta">May 2023 - Apr 2024</div>
       <ul className="bullets">
-        <li><span className="bullet-tldr">Built QSR reporting app</span><span className="bullet-rest"> — React, Flask, partner APIs; cut 10+ hours per client.</span></li>
-        <li><span className="bullet-tldr">Rebuilt healthchecks</span><span className="bullet-rest"> — Python on Cloud Run Jobs; 2 hrs to 10 min (90% faster), saving 120+ hours/month and $40k/year.</span></li>
-        <li><span className="bullet-tldr">Standardized logs to UDM</span><span className="bullet-rest"> — Python parsers; 10 min faster signal triage per event.</span></li>
+        <li><span className="bullet-tldr">Built QSR reporting platform</span><span className="bullet-rest"> — React + Flask with API integrations; eliminated 10+ hours of manual work per client per quarter.</span></li>
+        <li><span className="bullet-tldr">Rebuilt legacy healthcheck system</span><span className="bullet-rest"> — Python + GCP Cloud Run Jobs; 90% performance improvement (2 hours → 10 minutes), saving $40k/year in SOC operations.</span></li>
+        <li><span className="bullet-tldr">Standardized security log parsing</span><span className="bullet-rest"> — Python parsers mapping sources to Unified Data Model (UDM); reduced detection triage by 10 minutes per event.</span></li>
       </ul>
 
       <div className="subsection" style={{ marginTop: 30 }}>Georgia State University - Undergraduate Research Assistant</div>
       <div className="meta">Aug 2023 - May 2024</div>
       <ul className="bullets">
-        <li><span className="bullet-tldr">Built C++ image metadata system</span><span className="bullet-rest"> — high‑throughput I/O and fast indexed retrieval.</span></li>
-        <li><span className="bullet-tldr">Integrated ADIOS2/OpenCV/SQL</span><span className="bullet-rest"> — predictable, large‑scale pipelines.</span></li>
+        <li><span className="bullet-tldr">Developed C++ Image Metadata Management System</span><span className="bullet-rest"> — high-performance data storage and retrieval for research workflows.</span></li>
+        <li><span className="bullet-tldr">Integrated ADIOS2 with OpenCV and SQL</span><span className="bullet-rest"> — created adaptable I/O system for large-scale image processing pipelines.</span></li>
       </ul>
     </DraggableCard>
   );
@@ -402,29 +403,32 @@ function Dashboard() {
 
       <div className="subsection">BullRunAI</div>
       <ul className="bullets">
-        <li><span className="bullet-tldr">ReactJS + Cloud Run</span><span className="bullet-rest"> — real‑time market data, forecasting, TradingView charts; LLM prompts generate insights and sentiment from SnapTrade and Polygon feeds.</span></li>
+        <li><span className="bullet-tldr">Fintech social platform</span><span className="bullet-rest"> — ReactJS + Cloud Run delivering real-time market data, price forecasting, and sentiment analysis.</span></li>
+        <li><span className="bullet-tldr">Integrated trading APIs</span><span className="bullet-rest"> — SnapTrade API, Polygon API, and TradingView charts for comprehensive market insights.</span></li>
       </ul>
-      <div className="meta">Winner - Best Generative AI Hack @ Hackalytics 2025, Georgia Tech</div>
+      <div className="meta">Winner - Best Generative AI Hack @ Hackalytics 2025, Georgia Tech (250+ projects, 1200+ students)</div>
       <div className="link-row">
-        <a className="pill-link" href="https://www.linkedin.com/posts/pramit-bhatia_hacklytics-ai-crypto-activity-7302785837279182848-EJTa/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABfysTgBjAtVHdGsQalpvn6ClHGE4vi5uFw" target="_blank" rel="noreferrer">View Announcement</a>
+        <a className="pill-link" href="#" target="_blank" rel="noreferrer">View Announcement</a>
       </div>
 
       <div className="subsection" style={{ marginTop: 12 }}>Kapstone</div>
       <ul className="bullets">
-        <li><span className="bullet-tldr">ReactJS, ExpressJS, Supabase</span><span className="bullet-rest"> — embeddings + LLM ranking pair students and projects; built with CS leadership and IAB.</span></li>
+        <li><span className="bullet-tldr">AI-powered project matching SaaS</span><span className="bullet-rest"> — ReactJS + ExpressJS + Supabase with embeddings-based student-project pairing system.</span></li>
+        <li><span className="bullet-tldr">Built with academic leadership</span><span className="bullet-rest"> — collaborated with CS Dean and Industry Advisory Board for real-world validation.</span></li>
       </ul>
-      <div className="meta">Raised $25k+ - Microsoft for Startups and Startup Exchange GT; 3rd Place @ SX Summit</div>
+      <div className="meta">Raised $25k+ from Microsoft for Startups and Startup Exchange GT; 3rd Place @ SX Summit (30+ startups)</div>
       <div className="link-row">
-        <a className="pill-link" href="https://www.linkedin.com/posts/pramit-bhatia_very-excited-to-share-that-we-placed-3rd-activity-7265733038720917504-YpDg/" target="_blank" rel="noreferrer">View Announcement</a>
+        <a className="pill-link" href="#" target="_blank" rel="noreferrer">View Announcement</a>
       </div>
 
       <div className="subsection" style={{ marginTop: 12 }}>HealthSync</div>
       <ul className="bullets">
-        <li><span className="bullet-tldr">Azure TTS, Azure AI Communication, LangChain</span><span className="bullet-rest"> — agent‑style flows for scheduled outreach and contextual chat via a 2D avatar.</span></li>
+        <li><span className="bullet-tldr">AI healthcare communication platform</span><span className="bullet-rest"> — Azure TTS + Azure AI Communication + LangChain with 2D photorealistic avatar.</span></li>
+        <li><span className="bullet-tldr">Smart patient interaction system</span><span className="bullet-rest"> — automated scheduling, contextual chat processing, and Logistic Regression Model for personalization.</span></li>
       </ul>
-      <div className="meta">Winner - Best Healthcare Hack @ Hackalytics 2024, Georgia Tech</div>
+      <div className="meta">Winner - Best Healthcare Hack @ Hackalytics 2024, Georgia Tech (200+ projects, 1000+ students)</div>
       <div className="link-row">
-        <a className="pill-link" href="https://www.linkedin.com/posts/pramit-bhatia_hackalytics2024-activity-7162999991312044032-lAMQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAABfysTgBjAtVHdGsQalpvn6ClHGE4vi5uFw" target="_blank" rel="noreferrer">View Announcement</a>
+        <a className="pill-link" href="#" target="_blank" rel="noreferrer">View Announcement</a>
       </div>
     </DraggableCard>
   );
@@ -834,6 +838,27 @@ function Dashboard() {
           .nav-inner { justify-content: space-between; }
         }
         
+        .nav-icons{ display:flex; gap:8px; align-items:center; }
+        .nav-icon{
+          width:32px; height:32px; display:grid; place-items:center; border-radius:8px;
+          background: rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.14); color:#111; text-decoration:none;
+          transition: all 150ms ease;
+        }
+        .nav-icon:hover{ background: rgba(0,0,0,0.1); }
+        .nav-icon svg{ width:16px; height:16px; fill:currentColor; }
+        @media (max-width: 899px) {
+          .nav-icons { display:none; }
+          .mobile-nav-icons { display:flex; gap:8px; margin-top:16px; padding-top:16px; border-top:1px solid rgba(0,0,0,0.1); }
+          .mobile-nav-icon {
+            width:36px; height:36px; display:grid; place-items:center; border-radius:8px;
+            background: rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.14); color:#111; text-decoration:none;
+          }
+          .mobile-nav-icon svg{ width:18px; height:18px; fill:currentColor; }
+        }
+        @media (min-width: 900px) {
+          .mobile-nav-icons { display:none; }
+        }
+        
         `}</style>
 
 
@@ -867,6 +892,25 @@ function Dashboard() {
               </span>
             ))}
           </div>
+          {!isMobile && (
+            <div className="nav-icons">
+              <a className="nav-icon" href="https://www.linkedin.com/in/pramit-bhatia/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.6c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.9 1.97-2.9 4v7.74h-5V8z" />
+                </svg>
+              </a>
+              <a className="nav-icon" href="https://drive.google.com/file/d/1rBtBglnxaUu3eKsUfcSFDdgVSjLKjCAJ/view?usp=sharing" aria-label="Resume" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 7H8V7h7v2zm0 4H8v-2h7v2zm0 4H8v-2h7v2zM13 3.5L18.5 9H13V3.5z" />
+                </svg>
+              </a>
+              <a className="nav-icon" href="https://github.com/pramitbhatia25" aria-label="GitHub" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 .5C5.73.5.99 5.24.99 11.5c0 4.86 3.15 8.98 7.51 10.43.55.1.75-.24.75-.53l-.01-1.87c-3.05.66-3.69-1.3-3.69-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.44 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.42.11-2.96 0 0 .92-.29 3.02 1.13.88-.25 1.82-.37 2.76-.37.94 0 1.88.12 2.76.37 2.1-1.42 3.02-1.13 3.02-1.13.6 1.54.22 2.68.11 2.96.7.77 1.13 1.76 1.13 2.96 0 4.23-2.58 5.15-5.04 5.43.4.35.75 1.03.75 2.08l-.01 3.08c0 .29.2.63.75.53 4.36-1.44 7.51-5.57 7.51-10.43C23.01 5.24 18.27.5 12 .5z" />
+                </svg>
+              </a>
+            </div>
+          )}
         </div>
       </DraggableCard>
 
@@ -884,6 +928,23 @@ function Dashboard() {
                 {t}
               </div>
             ))}
+            <div className="mobile-nav-icons">
+              <a className="mobile-nav-icon" href="https://www.linkedin.com/in/pramit-bhatia/" aria-label="LinkedIn" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.6c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.9 1.97-2.9 4v7.74h-5V8z" />
+                </svg>
+              </a>
+              <a className="mobile-nav-icon" href="https://drive.google.com/file/d/1rBtBglnxaUu3eKsUfcSFDdgVSjLKjCAJ/view?usp=sharing" aria-label="Resume" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 7H8V7h7v2zm0 4H8v-2h7v2zm0 4H8v-2h7v2zM13 3.5L18.5 9H13V3.5z" />
+                </svg>
+              </a>
+              <a className="mobile-nav-icon" href="https://github.com/pramitbhatia25" aria-label="GitHub" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 .5C5.73.5.99 5.24.99 11.5c0 4.86 3.15 8.98 7.51 10.43.55.1.75-.24.75-.53l-.01-1.87c-3.05.66-3.69-1.3-3.69-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.44 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.42.11-2.96 0 0 .92-.29 3.02 1.13.88-.25 1.82-.37 2.76-.37.94 0 1.88.12 2.76.37 2.1-1.42 3.02-1.13 3.02-1.13.6 1.54.22 2.68.11 2.96.7.77 1.13 1.76 1.13 2.96 0 4.23-2.58 5.15-5.04 5.43.4.35.75 1.03.75 2.08l-.01 3.08c0 .29.2.63.75.53 4.36-1.44 7.51-5.57 7.51-10.43C23.01 5.24 18.27.5 12 .5z" />
+                </svg>
+              </a>
+            </div>
           </div>
         </>
       )}
@@ -921,15 +982,30 @@ function Dashboard() {
         {/* Contact section within the same card */}
         <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
           <div className="section-title" style={{ color: '#fff', fontSize: '20px', marginBottom: '12px' }}>Contact</div>
-          <ul className="bullets" style={{ color: 'rgba(255,255,255,0.9)', listStyle: 'none', padding: 0 }}>
-            <li style={{ marginBottom: '8px' }}><strong>Phone:</strong> +1 (470)-430-3868</li>
-            <li style={{ marginBottom: '8px' }}><strong>Email:</strong> pramitbhatia25@gmail.com</li>
-            <li style={{ marginBottom: '8px' }}><strong>Location:</strong> Atlanta, GA</li>
+          <ul className="bullets" style={{ color: 'rgba(255,255,255,0.9)', listStyle: 'none', padding: 0, marginBottom: '16px' }}>
+            <li style={{ marginBottom: '12px' }}><strong>Phone:</strong> +1 (470)-430-3868</li>
+            <li style={{ marginBottom: '12px' }}><strong>Email:</strong> pramitbhatia25@gmail.com</li>
+            <li style={{ marginBottom: '12px' }}><strong>Location:</strong> Atlanta, GA</li>
           </ul>
-          <div className="link-row">
-            <a className="pill-link" href="https://www.linkedin.com/in/pramit-bhatia/" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>LinkedIn</a>
-            <a className="pill-link" href="https://drive.google.com/file/d/1rBtBglnxaUu3eKsUfcSFDdgVSjLKjCAJ/view?usp=sharing" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Resume</a>
-            <a className="pill-link" href="https://github.com/pramitbhatia25" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>GitHub</a>
+          <div className="link-row" style={{ marginTop: '16px' }}>
+            <a className="pill-link" href="https://www.linkedin.com/in/pramit-bhatia/" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <svg viewBox="0 0 24 24" style={{ width: '16px', height: '16px', fill: 'currentColor' }}>
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.6c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.9 1.97-2.9 4v7.74h-5V8z" />
+              </svg>
+              LinkedIn
+            </a>
+            <a className="pill-link" href="https://drive.google.com/file/d/1rBtBglnxaUu3eKsUfcSFDdgVSjLKjCAJ/view?usp=sharing" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <svg viewBox="0 0 24 24" style={{ width: '16px', height: '16px', fill: 'currentColor' }}>
+                <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 7H8V7h7v2zm0 4H8v-2h7v2zm0 4H8v-2h7v2zM13 3.5L18.5 9H13V3.5z" />
+              </svg>
+              Resume
+            </a>
+            <a className="pill-link" href="https://github.com/pramitbhatia25" target="_blank" rel="noreferrer" style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#fff', borderColor: 'rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <svg viewBox="0 0 24 24" style={{ width: '16px', height: '16px', fill: 'currentColor' }}>
+                <path d="M12 .5C5.73.5.99 5.24.99 11.5c0 4.86 3.15 8.98 7.51 10.43.55.1.75-.24.75-.53l-.01-1.87c-3.05.66-3.69-1.3-3.69-1.3-.5-1.26-1.22-1.6-1.22-1.6-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.58 1.19 3.21.91.1-.71.38-1.19.69-1.46-2.44-.28-5.01-1.22-5.01-5.44 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.42.11-2.96 0 0 .92-.29 3.02 1.13.88-.25 1.82-.37 2.76-.37.94 0 1.88.12 2.76.37 2.1-1.42 3.02-1.13 3.02-1.13.6 1.54.22 2.68.11 2.96.7.77 1.13 1.76 1.13 2.96 0 4.23-2.58 5.15-5.04 5.43.4.35.75 1.03.75 2.08l-.01 3.08c0 .29.2.63.75.53 4.36-1.44 7.51-5.57 7.51-10.43C23.01 5.24 18.27.5 12 .5z" />
+              </svg>
+              GitHub
+            </a>
           </div>
         </div>
       </DraggableCard>
@@ -997,6 +1073,5 @@ function Dashboard() {
 
   );
 }
-
 
 export default Dashboard;
